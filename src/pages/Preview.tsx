@@ -13,7 +13,7 @@ const Preview = () => {
   const [highlightedWord, setHighlightedWord] = useState(0);
 
   // Mock text content
-  const textContent = `Welcome to your interactive ebook. This is a demonstration of how text highlighting works in sync with audio playback. As you listen to the narration, each word will be highlighted in real-time, making it easier to follow along and improve comprehension. This feature is particularly useful for learning new languages, studying complex materials, or simply enjoying a more immersive reading experience.`.split(" ");
+  const textContent = `Welcome to your interactive audiobook. This is a demonstration of how text highlighting works in sync with audio narration. As you listen, each word will be highlighted in real-time, making it easier to follow along and improve comprehension. This feature is particularly useful for learning new languages, studying complex materials, or simply enjoying a more immersive listening experience.`.split(" ");
 
   const togglePlayback = () => {
     setIsPlaying(!isPlaying);
@@ -37,8 +37,8 @@ const Preview = () => {
     }
   };
 
-  const handleDownloadEbook = () => {
-    toast.success("Ebook downloaded successfully!");
+  const handleDownloadAudiobook = () => {
+    toast.success("Audiobook downloaded successfully!");
   };
 
   const handleDownloadAudio = () => {
@@ -102,7 +102,7 @@ const Preview = () => {
                   <BookOpen className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold">Your Ebook</h2>
+                  <h2 className="text-2xl font-bold">Your Audiobook</h2>
                   <p className="text-sm text-muted-foreground">Interactive Preview</p>
                 </div>
               </div>
@@ -117,11 +117,11 @@ const Preview = () => {
                   Audio
                 </Button>
                 <Button
-                  onClick={handleDownloadEbook}
+                  onClick={handleDownloadAudiobook}
                   className="rounded-full shadow-md hover:shadow-lg transition-all"
                 >
                   <Download className="h-4 w-4 mr-2" />
-                  Ebook
+                  Audiobook
                 </Button>
               </div>
             </div>
@@ -153,18 +153,18 @@ const Preview = () => {
           {/* Export Options */}
           <Card className="p-8 shadow-md border-0 bg-gradient-primary">
             <div className="text-center text-primary-foreground">
-              <h3 className="text-2xl font-bold mb-3">Love Your Ebook?</h3>
+              <h3 className="text-2xl font-bold mb-3">Love Your Audiobook?</h3>
               <p className="mb-6 opacity-90">
-                Download it now and take your reading experience anywhere
+                Download it now and take your listening experience anywhere
               </p>
               <div className="flex gap-4 justify-center">
                 <Button
                   variant="secondary"
                   size="lg"
-                  onClick={handleDownloadEbook}
+                  onClick={handleDownloadAudiobook}
                   className="rounded-full shadow-md hover:shadow-lg transition-all"
                 >
-                  Download Ebook
+                  Download Audiobook
                 </Button>
                 <Button
                   variant="outline"
