@@ -66,9 +66,9 @@ const Landing = () => {
               <div className="mb-4 rounded-2xl bg-primary/10 p-4 w-fit">
                 <FileText className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="mb-3 text-xl font-semibold">Smart Document Conversion</h3>
+              <h3 className="mb-3 text-xl font-semibold">Multilingual Support & Detection</h3>
               <p className="text-muted-foreground">
-                Upload PDFs, DOCX, or TXT files and watch as AI transforms them into beautifully formatted ebooks with preserved structure.
+                Our application automatically detects multiple languages in your documents and generates realistic, natural-sounding audio narration in the specific language detected.
               </p>
             </Card>
 
