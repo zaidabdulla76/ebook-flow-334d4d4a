@@ -4,10 +4,8 @@ import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FileText, Headphones, BookOpen, Sparkles, Zap, Shield } from "lucide-react";
-
 const Landing = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       
       {/* Hero Section */}
@@ -131,7 +129,7 @@ const Landing = () => {
                 <div className="mb-4 mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary text-2xl font-bold text-primary-foreground shadow-lg">
                   3
                 </div>
-                <h3 className="mb-2 text-xl font-semibold">Enjoy</h3>
+                <h3 className="mb-2 text-xl font-semibold">Preview</h3>
                 <p className="text-muted-foreground">
                   Listen and download your audiobook
                 </p>
@@ -162,8 +160,6 @@ const Landing = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Landing;
