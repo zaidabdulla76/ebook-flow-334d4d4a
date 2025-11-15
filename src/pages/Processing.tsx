@@ -28,7 +28,7 @@ const Processing = () => {
           <div className="space-y-2">
             <h2 className="text-3xl font-bold">Processing Your Document</h2>
             <p className="text-muted-foreground">
-              Our AI is converting your document and generating audio narration...
+              Our AI is detecting languages and generating natural-sounding audio narration for your audiobook...
             </p>
           </div>
 

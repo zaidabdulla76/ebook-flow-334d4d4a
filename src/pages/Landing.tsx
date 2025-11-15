@@ -24,12 +24,12 @@ const Landing = () => {
             <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
               Convert Documents to
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {" "}Interactive Ebooks
+                {" "}Interactive Audiobooks
               </span>
             </h1>
             
             <p className="mb-10 text-lg text-muted-foreground sm:text-xl">
-              Upload any document and instantly transform it into a beautiful ebook with AI-generated audio narration. Listen while you read with synchronized text highlighting.
+              Upload any document and instantly transform it into an immersive audiobook with AI-generated narration in multiple languages. Listen with synchronized text highlighting.
             </p>
             
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -57,7 +57,7 @@ const Landing = () => {
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-4xl font-bold">Powerful Features</h2>
             <p className="text-lg text-muted-foreground">
-              Everything you need to create amazing ebooks
+              Everything you need to create amazing audiobooks
             </p>
           </div>
 
@@ -88,7 +88,7 @@ const Landing = () => {
               </div>
               <h3 className="mb-3 text-xl font-semibold">Synced Text Highlighting</h3>
               <p className="text-muted-foreground">
-                Follow along with intelligent text highlighting that syncs perfectly with audio playback for enhanced comprehension.
+                Follow along with intelligent text highlighting that syncs perfectly with audio narration for enhanced comprehension and immersive listening.
               </p>
             </Card>
           </div>
@@ -101,7 +101,7 @@ const Landing = () => {
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-4xl font-bold">How It Works</h2>
             <p className="text-lg text-muted-foreground">
-              Three simple steps to your perfect ebook
+              Three simple steps to your perfect audiobook
             </p>
           </div>
 
@@ -133,7 +133,7 @@ const Landing = () => {
                 </div>
                 <h3 className="mb-2 text-xl font-semibold">Enjoy</h3>
                 <p className="text-muted-foreground">
-                  Read, listen, and download your ebook
+                  Listen and download your audiobook
                 </p>
               </div>
             </div>
@@ -149,7 +149,7 @@ const Landing = () => {
               <Shield className="mx-auto mb-6 h-16 w-16 opacity-90" />
               <h2 className="mb-4 text-4xl font-bold">Ready to Get Started?</h2>
               <p className="mb-8 text-lg opacity-90">
-                Join thousands of users creating amazing ebooks every day
+                Join thousands of users creating amazing audiobooks every day
               </p>
               <Link to="/signup">
                 <Button size="lg" variant="secondary" className="rounded-full px-8 shadow-md hover:shadow-lg transition-all">

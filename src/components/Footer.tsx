@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="rounded-xl bg-gradient-primary p-2 shadow-sm">
               <BookOpen className="h-4 w-4 text-primary-foreground" />
             </div>
-            <span className="font-semibold">DocToEbook</span>
+            <span className="font-semibold">DocToAudio</span>
           </div>
           
           <div className="flex gap-6 text-sm text-muted-foreground">
@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            © 2024 DocToEbook. All rights reserved.
+            © 2024 DocToAudio. All rights reserved.
           </p>
         </div>
       </div>
