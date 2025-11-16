@@ -228,9 +228,9 @@ const Workspace = () => {
               />
 
                   {/* Page Selection */}
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">Select Pages</h3>
-                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  <div className="space-y-3">
+                    <h3 className="text-base font-semibold">Select Pages</h3>
+                    <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
                       {pages.map((page) => (
                         <PageThumbnail
                           key={page}
