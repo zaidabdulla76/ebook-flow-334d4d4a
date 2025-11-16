@@ -31,12 +31,12 @@ const Landing = () => {
             </p>
             
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link to="/upload">
-                <Button size="lg" className="rounded-full px-8 shadow-lg hover:shadow-xl transition-all">
-                  Start Converting
-                  <Zap className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+            <Link to="/workspace">
+              <Button size="lg" className="rounded-full px-8 shadow-lg hover:shadow-xl transition-all">
+                Start Converting
+                <Zap className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
               <Button size="lg" variant="outline" className="rounded-full px-8 shadow-sm hover:shadow-md transition-all">
                 Watch Demo
               </Button>

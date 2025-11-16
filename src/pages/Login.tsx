@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     // Mock login - in real app, this would call an API
     toast.success("Welcome back!");
-    navigate("/upload");
+    navigate("/workspace");
   };
 
   return (
