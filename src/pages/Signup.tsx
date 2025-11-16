@@ -17,7 +17,7 @@ const Signup = () => {
     e.preventDefault();
     // Mock signup - in real app, this would call an API
     toast.success("Account created successfully!");
-    navigate("/upload");
+    navigate("/workspace");
   };
 
   return (
