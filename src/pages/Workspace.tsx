@@ -4,8 +4,8 @@ import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import Navbar from "@/components/Navbar";
 import { RichTextEditor } from "@/components/RichTextEditor";
-import { PageThumbnail } from "@/components/PageThumbnail";
-import { 
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
   Upload as UploadIcon, 
   FileText, 
   CheckCircle2, 
@@ -230,16 +230,25 @@ const Workspace = () => {
                   {/* Page Selection */}
                   <div className="space-y-3">
                     <h3 className="text-base font-semibold">Select Pages</h3>
-                    <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
-                      {pages.map((page) => (
-                        <PageThumbnail
-                          key={page}
-                          pageNumber={page}
-                          isSelected={selectedPages.includes(page)}
-                          onToggle={() => togglePage(page)}
-                        />
-                      ))}
-                    </div>
+                    <ScrollArea className="w-full whitespace-nowrap rounded-lg border bg-muted/30 p-4">
+                      <div className="flex gap-2">
+                        {pages.map((page) => (
+                          <Button
+                            key={page}
+                            variant={selectedPages.includes(page) ? "default" : "outline"}
+                            size="lg"
+                            onClick={() => togglePage(page)}
+                            className={`min-w-[60px] h-[60px] rounded-xl font-semibold text-lg transition-all ${
+                              selectedPages.includes(page) 
+                                ? 'shadow-lg scale-105' 
+                                : 'hover:scale-105'
+                            }`}
+                          >
+                            {page}
+                          </Button>
+                        ))}
+                      </div>
+                    </ScrollArea>
                     <p className="text-sm text-muted-foreground">
                       {selectedPages.length} of {totalPages} pages selected
                     </p>
