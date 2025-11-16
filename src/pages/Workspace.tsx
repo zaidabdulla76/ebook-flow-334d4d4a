@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import Navbar from "@/components/Navbar";
+import { RichTextEditor } from "@/components/RichTextEditor";
+import { PageThumbnail } from "@/components/PageThumbnail";
 import { 
   Upload as UploadIcon, 
   FileText, 
@@ -222,29 +222,23 @@ const Workspace = () => {
                   </div>
 
                   {/* Document Editor */}
-                  <Textarea
-                    value={documentContent}
-                    onChange={(e) => setDocumentContent(e.target.value)}
+                  <RichTextEditor
+                    content={documentContent}
+                    onChange={setDocumentContent}
                     disabled={!isEditing}
-                    className="min-h-[300px] font-mono text-sm"
-                    placeholder="Document content will appear here..."
                   />
 
                   {/* Page Selection */}
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold">Select Pages</h3>
-                    <div className="grid grid-cols-5 gap-3">
+                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                       {pages.map((page) => (
-                        <label
+                        <PageThumbnail
                           key={page}
-                          className="flex items-center gap-2 p-3 border rounded-lg cursor-pointer hover:bg-muted/50 transition-colors"
-                        >
-                          <Checkbox
-                            checked={selectedPages.includes(page)}
-                            onCheckedChange={() => togglePage(page)}
-                          />
-                          <span className="text-sm font-medium">Page {page}</span>
-                        </label>
+                          pageNumber={page}
+                          isSelected={selectedPages.includes(page)}
+                          onToggle={() => togglePage(page)}
+                        />
                       ))}
                     </div>
                     <p className="text-sm text-muted-foreground">
