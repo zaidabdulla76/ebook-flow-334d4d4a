@@ -1,6 +1,7 @@
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { 
   Bold, 
   Italic, 
@@ -22,9 +23,9 @@ export const RichTextEditor = ({ content, onChange, disabled }: RichTextEditorPr
   const editor = useEditor({
     extensions: [StarterKit],
     content,
-    editable: !disabled,
+    editable: true,
     onUpdate: ({ editor }) => {
-      onChange(editor.getText());
+      onChange(editor.getHTML());
     },
   });
 
@@ -103,10 +104,12 @@ export const RichTextEditor = ({ content, onChange, disabled }: RichTextEditorPr
           </Button>
         </div>
       )}
-      <EditorContent 
-        editor={editor} 
-        className="prose prose-sm max-w-none p-4 min-h-[300px] focus:outline-none"
-      />
+      <ScrollArea className="h-[400px]">
+        <EditorContent 
+          editor={editor} 
+          className="prose prose-sm max-w-none p-4 min-h-[300px] focus:outline-none"
+        />
+      </ScrollArea>
     </div>
   );
 };
