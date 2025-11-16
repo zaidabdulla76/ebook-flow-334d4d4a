@@ -222,11 +222,10 @@ const Workspace = () => {
                   </div>
 
                   {/* Document Editor */}
-                  <RichTextEditor
-                    content={documentContent}
-                    onChange={setDocumentContent}
-                    disabled={!isEditing}
-                  />
+              <RichTextEditor 
+                content={documentContent}
+                onChange={setDocumentContent}
+              />
 
                   {/* Page Selection */}
                   <div className="space-y-4">
