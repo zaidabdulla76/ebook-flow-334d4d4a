@@ -331,7 +331,7 @@ const Workspace = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="grid grid-cols-1 gap-3">
+                  <div className="grid grid-cols-3 gap-3">
                     <Button
                       onClick={handleContinue}
                       disabled={selectedPages.length === 0}
@@ -339,6 +339,25 @@ const Workspace = () => {
                       size="lg"
                     >
                       Continue to Preview
+                    </Button>
+                    <Button
+                      variant="outline"
+                      onClick={handleDownloadAudio}
+                      className="w-full rounded-full"
+                      size="lg"
+                      disabled={!showPreview}
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      Download Audio
+                    </Button>
+                    <Button
+                      onClick={handleDownloadAudiobook}
+                      className="w-full rounded-full shadow-md hover:shadow-lg transition-all"
+                      size="lg"
+                      disabled={!showPreview}
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      Download Audiobook
                     </Button>
                   </div>
                 </div>
@@ -437,7 +456,7 @@ const Workspace = () => {
                         <p className="text-muted-foreground">
                           Showing pages: {selectedPages.join(", ")}
                         </p>
-                        <ScrollArea className="h-[400px] mt-4">
+                        <ScrollArea className="h-[600px] mt-4">
                           <div className="p-4 bg-muted/30 rounded-lg">
                             <div className="leading-relaxed space-y-2">
                               {documentLines.map((line, index) => (
@@ -459,26 +478,6 @@ const Workspace = () => {
                     </div>
                   </Card>
 
-                  {/* Download Buttons */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <Button
-                      variant="outline"
-                      onClick={handleDownloadAudio}
-                      className="w-full rounded-full"
-                      size="lg"
-                    >
-                      <Download className="h-4 w-4 mr-2" />
-                      Download Audio
-                    </Button>
-                    <Button
-                      onClick={handleDownloadAudiobook}
-                      className="w-full rounded-full shadow-md hover:shadow-lg transition-all"
-                      size="lg"
-                    >
-                      <Download className="h-4 w-4 mr-2" />
-                      Download Audiobook
-                    </Button>
-                  </div>
                 </div>
               )}
             </div>
