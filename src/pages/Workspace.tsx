@@ -40,6 +40,7 @@ const Workspace = () => {
   const [volume, setVolume] = useState([80]);
   const [pageScrollPosition, setPageScrollPosition] = useState(0);
   const [currentReadingLine, setCurrentReadingLine] = useState(0);
+  const [playbackInterval, setPlaybackInterval] = useState<NodeJS.Timeout | null>(null);
 
   // Mock pages data
   const totalPages = 5;
@@ -118,13 +119,28 @@ const Workspace = () => {
   };
 
   const togglePlayback = () => {
-    setIsPlaying(!isPlaying);
     if (!isPlaying) {
-      // Simulate reading progress
+      // Start reading progress
       const interval = setInterval(() => {
-        setCurrentReadingLine(prev => prev + 1);
+        setCurrentReadingLine(prev => {
+          const nextLine = prev + 1;
+          if (nextLine >= documentLines.length) {
+            setIsPlaying(false);
+            if (playbackInterval) clearInterval(playbackInterval);
+            return 0;
+          }
+          return nextLine;
+        });
       }, 2000);
-      return () => clearInterval(interval);
+      setPlaybackInterval(interval);
+      setIsPlaying(true);
+    } else {
+      // Stop playback
+      if (playbackInterval) {
+        clearInterval(playbackInterval);
+        setPlaybackInterval(null);
+      }
+      setIsPlaying(false);
     }
   };
 
@@ -353,8 +369,7 @@ const Workspace = () => {
                 <div className="space-y-6">
                   {/* Audio Player */}
                   <Card className="p-6 shadow-lg border-0 bg-card/95 backdrop-blur">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4">
                         <Button
                           size="lg"
                           onClick={togglePlayback}
@@ -412,7 +427,6 @@ const Workspace = () => {
                           </Button>
                         </div>
                       </div>
-                    </div>
                   </Card>
 
                   {/* Document Preview */}
@@ -446,7 +460,7 @@ const Workspace = () => {
                   </Card>
 
                   {/* Download Buttons */}
-                  <div className="grid grid-cols-1 gap-3">
+                  <div className="grid grid-cols-2 gap-3">
                     <Button
                       variant="outline"
                       onClick={handleDownloadAudio}
