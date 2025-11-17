@@ -14,9 +14,12 @@ import {
   Play,
   Pause,
   Volume2,
+  VolumeX,
   Download,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Plus,
+  Minus
 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -351,44 +354,62 @@ const Workspace = () => {
                   {/* Audio Player */}
                   <Card className="p-6 shadow-lg border-0 bg-card/95 backdrop-blur">
                     <div className="space-y-4">
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-4">
-                          <Button
-                            size="lg"
-                            onClick={togglePlayback}
-                            className="rounded-full h-14 w-14 shadow-md hover:shadow-lg transition-all"
-                          >
-                            {isPlaying ? (
-                              <Pause className="h-6 w-6" />
-                            ) : (
-                              <Play className="h-6 w-6 ml-1" />
-                            )}
-                          </Button>
+                      <div className="flex items-center gap-4">
+                        <Button
+                          size="lg"
+                          onClick={togglePlayback}
+                          className="rounded-full h-14 w-14 shadow-md hover:shadow-lg transition-all shrink-0"
+                        >
+                          {isPlaying ? (
+                            <Pause className="h-6 w-6" />
+                          ) : (
+                            <Play className="h-6 w-6 ml-1" />
+                          )}
+                        </Button>
 
-                          <div className="flex-1 space-y-2">
-                            <div className="flex items-center justify-between text-sm text-muted-foreground">
-                              <span>{Math.floor(progress[0] / 100 * 180)}s</span>
-                              <span>3:00</span>
-                            </div>
-                            <Slider
-                              value={progress}
-                              onValueChange={setProgress}
-                              max={100}
-                              step={1}
-                              className="cursor-pointer"
-                            />
+                        <div className="flex-1 space-y-2">
+                          <div className="flex items-center justify-between text-sm text-muted-foreground">
+                            <span>{Math.floor(progress[0] / 100 * 180)}s</span>
+                            <span>3:00</span>
                           </div>
-                        </div>
-
-                        <div className="flex items-center gap-3">
-                          <Volume2 className="h-5 w-5 text-muted-foreground shrink-0" />
                           <Slider
-                            value={volume}
-                            onValueChange={setVolume}
+                            value={progress}
+                            onValueChange={setProgress}
                             max={100}
                             step={1}
-                            className="flex-1"
+                            className="cursor-pointer"
                           />
+                        </div>
+
+                        <div className="flex items-center gap-2 shrink-0">
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            onClick={() => setVolume([Math.max(0, volume[0] - 10)])}
+                            className="h-9 w-9"
+                          >
+                            {volume[0] === 0 ? (
+                              <VolumeX className="h-4 w-4" />
+                            ) : (
+                              <Minus className="h-4 w-4" />
+                            )}
+                          </Button>
+                          <div className="w-24">
+                            <Slider
+                              value={volume}
+                              onValueChange={setVolume}
+                              max={100}
+                              step={1}
+                            />
+                          </div>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            onClick={() => setVolume([Math.min(100, volume[0] + 10)])}
+                            className="h-9 w-9"
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
                         </div>
                       </div>
                     </div>
